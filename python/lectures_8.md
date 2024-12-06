@@ -406,6 +406,132 @@ Enter number: done
 Average 35.6
 ```
 
+# lecture 8 | 8.3 strings and Lists 
+
+## Best friends: Strings and Lists
+
+```python
+abc = 'with three words'
+stuff = abc.split()
+print(stuff)
+print(len(stuff))
+print(stuff[0])
+print(stuff[2]) # 0 & 2 is a index value
+
+#that's a "for loop"
+for w in stuff:
+    print(w)
+
+# output:
+['with', 'three', 'words']
+3
+with
+words
+
+# "for loop" output
+with
+three
+words
+```
+
+*"split()" breaks a string into parts and produces a list of strings. We access a particular word or loop through all the words.*
+
+```Python
+line = 'A lot           of spaces'
+etc = line.split()
+print(etc)
+
+line = 'first;second;third'
+thing = line.split() # here we are split white spaces
+print(thing)
+thing = line.split(';') # now we are split (';')
+print(thing)
+print(len(thing))
+
+# output:
+['A', 'lot', 'of', 'spaces']
+['first;second;third']
+['first', 'second', 'third']
+3
+```
+
+- *When you do not specify a delimiter, multiple spaces are trated like one delimiter.*
+
+- *You can specify what delimiter character to use in the spliting.*
+
+
+```Python
+fhand = open('mbox-shorts.txt')
+for line in fhand:
+    line = line.rstrip()
+    if not line.startswith('From: ') : continue
+    word = line.split()
+    print(word[2])
+
+# output:
+sat
+mon
+```
+
+```python
+line = 'From: sumitpaul@cloudadda.net sat jan 5 09:14:16 2024'
+word = line.split()
+print(word)
+
+#output:
+['From:', 'sumitpaul@cloudadda.net', 'sat', 'jan', '5', '09:14:16', '2024']
+```
+
+## The Double split() pattern:
+
+*Sometimes we split a line one way, and then grab one of the pieces of the line and split that piece again.*
+
+```python
+line = 'From: sumitpaul@cloudadda.net sat jan 5 09:14:16 2024'
+word = line.split()
+email = word[1]
+print(email)
+piece = email.split('@')
+print(piece)
+
+#output:
+sumitpaul@cloudadda.net
+['sumitpaul', 'cloudadda.net']
+```
+## How to chop and find organization's email, host name, domain and domain extension:
+
+```Python
+line = 'From: sumitpaul@cloudadda.net sat jan 5 09:14:16 2024'
+word = line.split()
+email = word[1]
+print(email)
+piece = email.split('@')
+print(piece)
+# more precice way
+print(piece[1])
+print(piece[0])
+# how to find any company domain extension:
+fetch_domain_extention = piece[1]
+print(fetch_domain_extention)
+dot = fetch_domain_extention.split('.')
+print(dot)
+print(dot[1])
+# domain name
+domain = dot
+print(domain[0])
+
+# output:
+sumitpaul@cloudadda.net # email
+['sumitpaul', 'cloudadda.net']
+cloudadda.net # domain name
+sumitpaul # host name
+cloudadda.net
+['cloudadda', 'net']
+net # domain extension
+cloudadda # domain name
+
+
+
 
 
 
