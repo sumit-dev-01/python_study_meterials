@@ -215,6 +215,83 @@ print(greet("Sumit"))
 ```python
 Hello, Sumit!
 ```
+___
+
+## What is an f-string?
+*An f-string (formatted string literal) is a way to embed expression inside string literals using curly braces {}. It was introduced in python 3.6 and is now the preferred method for string formatting.*
+
+*An f-string starts with an (f or F) before the opening quotation (") mark of the string. Inside the string, expression or variables can be embedded by enclosing them in curly braces {}. These expression are embedded and included in the string runtime.*
+
+```python
+x = 5
+y = 34
+
+print(f"The sum of {x} and {y} is {x + y}")
+
+#output:
+The sum of 5 and 34 is 39
+```
+
+## Using f-string with formatting:
+```python
+pi = 3.14159
+formatted_pi = f"pi is approximately {pi:.2f}"
+
+print(formatted_pi)
+
+#output:
+pi is approximately 3.14
+```
+
+## Multiline string:
+*You can create multiline string with the help of (""" """)*
+
+```python
+
+name = "sumit"
+age = 22
+message = f"""
+Hello {name}
+I'm {age} years old
+"""
+print(message)
+
+#output:
+Hello sumit
+I'm 22 years old
+```
+
+## Escaping curly braces:
+*If you meed to include curly braces { or } in the output string, you can escape them by doubling the braces {{ or }}*
+
+```python
+
+name = "sumit"
+message = f"{{hello}} {name}"
+print(message)
+
+#output:
+{hello} sumit
+```
+
+```python
+price = 49.99
+print(f"The price is ${price:.2f}.")
+
+#output:
+The price is $49.99.
+```
+
+## Date and Time formatting
+
+```python
+from datetime import datetime
+current_time = datetime.now()
+print(f"Current date and time is: {current_time:%Y-%m-%d %H:%M:%S}")
+
+#output:
+Current date and time is: 2024-12-09 01:52:25
+```
 
 ---
 
