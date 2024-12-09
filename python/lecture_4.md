@@ -236,6 +236,7 @@ print(x)
 **Output:**
 ```
 8
+```
 
 ## Create a dynamic table:
 
