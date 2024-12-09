@@ -41,6 +41,71 @@ leather
 ```
 - The value of `n` does not change, causing the condition to always evaluate to `True`.
 
+___
+
+## CREATA INFINITE LOOP:
+## ⚠️ **WARNING** ⚠️
+*Run that loop at your own risk. Code is dengerous, when "YOU" don't know what you run. Maybe your system is crashed...THAT ONLY FOR EDUCATIONAL PURPOSE. REPO AUTHOR OR REPO NOT RESPONSIBLE FOR THAT OPERATION.*
+
+[Before CPU condition](https://github.com/sumit-dev-01/python_study_meterials/blob/main/python/pics/before.png)
+
+[After CPU condition](https://github.com/sumit-dev-01/python_study_meterials/blob/main/python/pics/after.png)
+
+
+```python
+loop_start = int(input("enter number: "))
+while loop_start <= 0:
+        print("enter a valid no.")
+        loop_start = int(input("enter number: "))
+while loop_start > 0:
+    print("cloudadda.net")
+```
+
+```python
+#output:
+## when condition not met the requirements; so in this case, loop runs until user enter a value that grater than 0
+enter number: -2
+enter a valid no.
+enter number: -4
+enter a valid no.
+enter number:
+
+# when enter value that grater than 0 
+enter number: 4
+
+cloudadda.net
+cloudadda.net
+cloudadda.net
+cloudadda.net
+cloudadda.net
+......
+```
+
+## Same code but when Loops (repeated steps) have iteration variables that change each time through a loop:
+
+```python
+loop_start = int(input("enter number: "))
+while loop_start <= 0:
+        print("enter a valid no.")
+        loop_start = int(input("enter number: "))
+while loop_start <= 10:
+    print(loop_start)
+    loop_start += 1
+
+# output:
+enter number: 2
+2
+3
+4
+5
+6
+7
+8
+9
+10
+```
+*Here 1st "**while block**" condition is met the requirements then goto next code block, other wise 1st **while block** run and run endlessly...*
+
 ### Another Example:
 ```python
 n = 0 
