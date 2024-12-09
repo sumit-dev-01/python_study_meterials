@@ -236,3 +236,29 @@ print(x)
 **Output:**
 ```
 8
+
+## Create a dynamic table:
+
+```python
+count_table = int(input("enter a no. of table: "))
+def multiply(counting):
+    while counting <= 10:
+        print(f"{count_table} x {counting} = {count_table * counting}")
+        counting += 1
+
+multiply(1)
+```
+**output**
+```python
+enter a no. of table: 13
+13 x 1 = 13
+13 x 2 = 26
+13 x 3 = 39
+13 x 4 = 52
+13 x 5 = 65
+13 x 6 = 78
+13 x 7 = 91
+13 x 8 = 104
+13 x 9 = 117
+13 x 10 = 130
+```
