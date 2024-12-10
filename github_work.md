@@ -28,7 +28,7 @@ git --version
 ## How to work with Git in Visual Studio Code
 
 - *Open VS code and and then open terminal*
-`(ctrl + `)`
+`ctrl + backtick` 
 
 - *Clone repo*
 ```bash
