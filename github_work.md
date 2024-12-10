@@ -7,7 +7,7 @@
 
 - **Select destination location:** *Choose the installation folder or leave it as default.*
 
-- **Select components:** *Keep the defaults checked, ou select additional options (e.g., "Git Bash Here" for context menu integration).*
+- **Select components:** *Keep the defaults checked, or select additional options (e.g., "Git Bash Here" for context menu integration).*
 
 - **Recomende:** *"Git from the command line and also from 3rd-party software."*
 
@@ -27,7 +27,7 @@ git --version
 
 ## How to work with Git in Visual Studio Code
 
-- *Open VS code and and then open terminal
+- *Open VS code and and then open terminal*
 `(ctrl + `)`
 
 - *Clone repo*
@@ -48,7 +48,7 @@ cd python_study_meterials/python
 git branch -a
 ```
 
-- *Create a local branch of remote branch*
+- *Create a local branch from remote branch*
 ```bash
 git checkout -b introduction_brunch origin/introduction_brunch
 ```
@@ -58,7 +58,7 @@ git checkout -b introduction_brunch origin/introduction_brunch
 ```bash
 git branch -a
 ```
-*`*` mark where you're and color should be green.*
+*`*` mark shows you where you're and color should be green.*
 *After you confirm then proceed to `git add` and `git commit`*
 
 - *When you edit existing file that show in `M` mode, means you're in Modifing*
@@ -81,7 +81,7 @@ git commit -m "type your message (what you update. So that when you see next tim
 git push origin introduction_brunch
 ```
 
-*You can fetch latedt updated repo with this*
+*You can fetch latest updated repo with this*
 ```bash
 git pull origin introduction_brunch
 ```
