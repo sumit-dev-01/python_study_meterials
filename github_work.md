@@ -48,10 +48,17 @@ cd python_study_meterials/python
 git branch -a
 ```
 
-- *Create a local branch from remote branch*
+- *This creates a new local branch named introduction_brunch and checks it out (i.e., switches to it).*
 ```bash
 git checkout -b introduction_brunch origin/introduction_brunch
 ```
+
+```bash
+git fetch origin introduction_brunch  # Ensures the remote branch is fetched
+git branch --track introduction_brunch origin/introduction_brunch  # Creates the local branch and sets up tracking
+git checkout introduction_brunch  # Switches to the new branch
+```
+
 *Make sure you work on your feature branch, don't work in main branch, after work is complete we'll push to feature branch then merge it to main branch.*
 
 - *Now check where you're*
