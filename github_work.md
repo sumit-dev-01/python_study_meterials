@@ -85,3 +85,16 @@ git push origin introduction_brunch
 ```bash
 git pull origin introduction_brunch
 ```
+
+### When you create a new branch on github's remote repository initially that don't appear on local system (VS Code)
+
+*If you are run that command `git branch -a` and trying to show your position or available branches, still you don't show newly created branch  call `assignments` (my branch)*
+
+**Run that**
+
+```bash
+git fetch --all
+```
+```bash
+git branch -a
+```
