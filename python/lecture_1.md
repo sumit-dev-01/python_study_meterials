@@ -146,8 +146,8 @@ Operators are symbols or functions used to perform operations on values or varia
 #### 7.2 Comparison Operators:
 - `==` : Equal to
 - `!=` : Not equal to
-- `>` : Greater than
-- `<` : Less than
+- `>` : Greater than (The greater than operator `>` is used to compare two values. It checks if the value on the left side is strictly larger than the value on the right side.)
+- `<` : Less than (The less than operator `<` is used to compare two values. It checks if the value on the left side is strictly smaller than the value on the right side.)
 - `>=` : Greater than or equal to
 - `<=` : Less than or equal to
 
@@ -222,14 +222,95 @@ ___
 
 *An f-string starts with an (f or F) before the opening quotation (") mark of the string. Inside the string, expression or variables can be embedded by enclosing them in curly braces {}. These expression are embedded and included in the string runtime.*
 
-```python
-x = 5
-y = 34
 
-print(f"The sum of {x} and {y} is {x + y}")
+## Simplicity and Readability
+- *Embed expressions directly in the string using `{}` without needing cumbersome string concatenation or `.format()` calls.*
+
+```python
+name = "Sumit"
+age = 22
+print(f"My name is {name} and I am {age} years old.")
+# Output: My name is Sumit and I am 25 years old.
+```
+
+## Faster Performance
+- *f-strings are faster than both `.format()` and string concatenation because they are evaluated at runtime as a single expression.*
+
+```python
+import timeit
+
+# Measure time taken by .format() method
+format_time = timeit.timeit('"Hello, {}!".format("World")', number=100000000)
+
+# Measure time taken by f-string
+fstring_time = timeit.timeit('f"Hello, {"World"}!"', number=100000000)
+
+# Print the results
+print(f"Time taken by .format(): {format_time:.6f} seconds")
+print(f"Time taken by f-strings: {fstring_time:.6f} seconds")
+
+# Calculate time difference
+time_difference = abs(format_time - fstring_time)
+
+# Compare which is faster and print the time difference
+if format_time > fstring_time:
+    print("f-strings are faster!")
+    print(f"f-strings are {time_difference:.6f} seconds faster.")
+else:
+    print(".format() is faster!")
+    print(f".format() is {time_difference:.6f} seconds faster.")
 
 #output:
-The sum of 5 and 34 is 39
+Time taken by .format(): 18.676581 seconds
+Time taken by f-strings: 5.067684 seconds
+f-strings are faster!
+f-strings are 13.608897 seconds faster.
+```
+#### comparing the execution time of two ways to format strings in Python: using `.format()` and `f-strings`.
+
+#### This measures how long a small piece of code takes to run. Specify the code as a string and the **number=100000000** argument means it will run the code **10cr.** times to get an accurate measure.
+
+
+## Supports Any Expression
+- *f-strings can evaluate any Python expression within `{}`, including function calls, calculations, and object attributes.*
+
+```python
+import math
+print(f"The square root of 16 is {math.sqrt(16)}.")
+# Output: The square root of 16 is 4.0.
+```
+
+## Easier Debugging
+- *You can use the `=` syntax inside an f-string to display both the variable name and its value.*
+
+```python
+x = 10
+y = 20
+print(f"x={x}, y={y}, sum={x + y}")
+# Output: x=10, y=20, sum=30
+```
+
+## Cleaner Multi-Line Formatting
+- *f-strings work seamlessly with multi-line strings, improving readability for complex templates.*
+
+```python
+user = "Sumit"
+balance = 150.75
+message = f"""
+Hello {user},
+Your current account balance is ${balance}.
+"""
+print(message)
+```
+
+
+## No Need for Explicit Conversion
+- *Automatically converts non-string types to strings.*
+
+```python
+items = 5
+print(f"You have {items} items.")
+# Output: You have 5 items.
 ```
 
 ## Using f-string with formatting:
