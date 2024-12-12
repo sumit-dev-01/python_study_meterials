@@ -100,7 +100,7 @@ print(digit)
 3. Result:
   - The last digit of `34` is `4`, which corresponds to the 3rd digit from the right of the original number `3454`.
 
-### That's not end...that's just some examples of what we can do python in large set data
+### That's not end...that's just some examples of what we can do with python in large set data
 ## We're gonna one more thing 😎
 
 ## Converting and Manipulating Data Types in Python (Float to String and Back)
@@ -121,6 +121,16 @@ print(type(reassign_pi_val))
 change_pi_type = float(reassign_pi_val)
 print(change_pi_type)
 print(type(change_pi_type))
+
+#output:
+3.14
+<class 'float'>
+1
+<class 'str'>
+3.34
+<class 'str'>
+3.34
+<class 'float'>
 ```
 
 `PI`: **Capitalization Meaning** - *It suggests the value should not be changed during the program's* execution.
