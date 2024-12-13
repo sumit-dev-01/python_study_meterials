@@ -263,3 +263,189 @@ enter a no. of table: 13
 13 x 9 = 117
 13 x 10 = 130
 ```
+
+# MOST EASY PROGRAM YOU'VE EVER SEEN BEFORE THIS!!😁
+
+#### Here is a easy real-life program based on functions, incorporating advanced concepts like nested conditional statements, decorators, recursion, and error handling. This program simulates a real-world E-commerce system that calculates discounts, taxes, applies offers, and processes different types of customer orders. It also includes some advanced Python features such as lambda functions, higher-order functions, and exception handling.
+
+```python
+# Helper function: Calculate the total price of an item
+def calculate_item_price(price, quantity, discount=0):
+    """Calculates the total price of an item after applying a discount."""
+    if price < 0 or quantity < 1:
+        raise ValueError("Price must be positive, and quantity must be at least 1.")
+    if not (0 <= discount <= 1):
+        raise ValueError("Discount should be between 0 and 1.")
+    return (price * quantity) * (1 - discount)
+
+# Decorator: Logging order processing time
+import time
+def log_execution_time(func):
+    """Logs the time taken by the function."""
+    def wrapper(*args, **kwargs):
+        start_time = time.time()
+        result = func(*args, **kwargs)
+        end_time = time.time()
+        print(f"Execution time of {func.__name__}: {end_time - start_time:.4f} seconds")
+        return result
+    return wrapper
+
+# Function to process discount based on customer type and category
+def process_discount(cart_value, customer_type, category, coupon_code=None):
+    """Applies discounts based on customer type, category, and available coupon."""
+    discount = 0
+    if customer_type == 'VIP':
+        discount = 0.20  # 20% discount for VIP
+    elif customer_type == 'Regular':
+        discount = 0.10  # 10% discount for regular
+    elif customer_type == 'Guest':
+        discount = 0.05  # 5% discount for guests
+    
+    # Special discount for certain categories
+    if category == 'Electronics' and cart_value > 10000:
+        discount += 0.10  # Extra 10% off for electronics over ₹10,000
+    
+    # Apply coupon code if provided
+    if coupon_code == "EXTRA10":
+        discount += 0.10  # Apply an extra 10% discount
+
+    # Ensure the discount is capped at 50%
+    if discount > 0.50:
+        discount = 0.50
+    return discount
+
+# Function to calculate taxes based on state and product type
+def calculate_taxes(cart_value, state, product_type):
+    """Calculates applicable taxes for an order based on state and product type."""
+    tax_rate = 0.12  # Default tax rate
+    if product_type == "Luxury":
+        tax_rate = 0.18  # Luxury goods tax rate
+    elif product_type == "Groceries":
+        tax_rate = 0.05  # Lower tax for groceries
+    
+    if state == "California":
+        tax_rate += 0.03  # California has an additional 3% tax
+    
+    return cart_value * tax_rate
+
+# Function to apply shipping cost based on distance and urgency
+def apply_shipping(cart_value, distance, urgency="Normal"):
+    """Calculates shipping cost based on distance and urgency of the order."""
+    shipping_cost = 0
+    if urgency == "Urgent":
+        shipping_cost += 200  # Urgent orders incur an extra ₹200
+    if distance < 50:
+        shipping_cost += 50  # ₹50 for local delivery
+    elif distance < 200:
+        shipping_cost += 150  # ₹150 for deliveries within 200 km
+    else:
+        shipping_cost += 300  # ₹300 for long-distance delivery
+
+    # Shipping discount for high cart values
+    if cart_value > 5000:
+        shipping_cost *= 0.9  # 10% discount on shipping for cart value > ₹5000
+    
+    return shipping_cost
+
+# Main function to calculate total order cost
+@log_execution_time
+def process_order(cart, customer_type, state, category, coupon_code=None, urgency="Normal", distance=0):
+    """Calculates the final cost of an order based on various parameters."""
+    total_value = 0
+    
+    # Calculate the total value of the cart after applying item-specific discounts
+    for item in cart:
+        try:
+            total_value += calculate_item_price(item['price'], item['quantity'], item['discount'])
+        except ValueError as e:
+            print(f"Error in item {item['name']}: {e}")
+            return None
+
+    # Process customer discounts
+    discount = process_discount(total_value, customer_type, category, coupon_code)
+    total_value -= total_value * discount
+
+    # Apply taxes based on state and product type
+    taxes = calculate_taxes(total_value, state, category)
+    total_value += taxes
+
+    # Apply shipping costs
+    shipping_cost = apply_shipping(total_value, distance, urgency)
+    total_value += shipping_cost
+
+    # Return the final calculated cost
+    return total_value
+
+# Input: Sample order and customer details
+cart = [
+    {"name": "Laptop", "price": 50000, "quantity": 1, "discount": 0.10},
+    {"name": "Headphones", "price": 3000, "quantity": 2, "discount": 0.05},
+    {"name": "Smartphone", "price": 15000, "quantity": 1, "discount": 0.15}
+]
+
+customer_type = input("Enter customer type (VIP/Regular/Guest): ").capitalize()
+category = input("Enter category of items (Electronics/Groceries/Luxury): ").capitalize()
+state = input("Enter state (California/New York/Other): ").capitalize()
+coupon_code = input("Enter coupon code (if any): ").upper()
+urgency = input("Enter urgency (Normal/Urgent): ").capitalize()
+distance = int(input("Enter shipping distance in km: "))
+
+# Process the order
+final_cost = process_order(cart, customer_type, state, category, coupon_code, urgency, distance)
+
+# Output the final cost
+if final_cost is not None:
+    print(f"\n--- Final Billing Details ---")
+    print(f"Total Order Cost: ₹{final_cost:.2f}")
+else:
+    print("There was an error processing the order.")
+
+```
+
+### USED RAW-MATERIALS IN THAT BUILDING 🏗️
+
+Here are the main bullet points without descriptions:
+
+- Functions:
+  - `calculate_item_price(price, quantity, discount=0)`
+  - `log_execution_time(func)` (Decorator)
+  - `process_discount(cart_value, customer_type, category, coupon_code=None)`
+  - `calculate_taxes(cart_value, state, product_type)`
+  - `apply_shipping(cart_value, distance, urgency="Normal")`
+  - `process_order(cart, customer_type, state, category, coupon_code=None, urgency="Normal", distance=0)`
+
+- Attributes/Variables:
+  - `cart`
+  - `customer_type`
+  - `category`
+  - `state`
+  - `coupon_code`
+  - `urgency`
+  - `distance`
+
+- Libraries:
+  -`time`
+  - `ValueError`
+
+- Key Concepts:
+  - Decorator (`log_execution_time`)
+  - Exception Handling (`try` and `except`)
+  - Conditionals (`if-else` statements)
+  - Loops (`for loop`)
+  - Default Parameters (`discount=0`)
+
+- Data Structures:
+  - List of Dictionaries (`cart`)
+  - Dictionaries
+
+- Calculations:
+  - Price Calculation
+  - Discount Calculation
+  - Tax Calculation
+  - Shipping Calculation
+
+- Control Flow:
+  - Conditional Statements (if-elif-else)
+  - Capping Values
+
+  
