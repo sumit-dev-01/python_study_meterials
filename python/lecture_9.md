@@ -354,3 +354,56 @@ print(big_count, big_word)
 # sample_file.txt content
 hello world hello python world world world world python python
 ```
+
+## HOW TO DEAL 🫱🏻‍🫲🏻 WITH AI's UNSTRUCTURE DATA
+```python
+import pandas as pd
+from datetime import datetime
+
+# Sample unstructured data (like chatbot conversation logs)
+unstructured_data = [
+    {"timestamp": "2024-12-13T10:01:00", "user": "John", "message": "Hi there!"},
+    {"timestamp": "2024-12-13T10:01:30", "user": "AI", "message": "Hello! How can I assist you today?"},
+    {"timestamp": "2024-12-13T10:02:00", "user": "John", "message": "I need help with data science."},
+    {"timestamp": None, "user": "AI", "message": "Sure! What specific topic are you interested in?"}
+]
+
+# Function to process the unstructured data
+def process_data(unstructured_data):
+    # Create a DataFrame from the unstructured data
+    df = pd.DataFrame(unstructured_data)
+
+    # Convert the 'timestamp' to a standard datetime format (ISO format)
+    df['timestamp'] = pd.to_datetime(df['timestamp'], errors='coerce')
+
+    # Fill missing timestamps with the previous timestamp (or a default value, here we use current time)
+    df['timestamp'].fillna(datetime.now(), inplace=True)
+
+    # Handle missing values for 'user' and 'message' columns
+    df['user'].fillna('Unknown User', inplace=True)
+    df['message'].fillna('No message provided', inplace=True)
+
+    # Ensure the data is sorted by timestamp
+    df = df.sort_values(by='timestamp')
+
+    # Return the structured DataFrame
+    return df
+
+# Process the data
+structured_data = process_data(unstructured_data)
+
+# Save the structured data to a CSV file for future analysis
+structured_data.to_csv('structured_chatbot_data.csv', index=False)
+
+# Display the structured data
+print(structured_data)
+```
+
+```python
+#output
+                   timestamp  user                                           message
+0 2024-12-13 10:01:00.000000  John                                         Hi there!
+1 2024-12-13 10:01:30.000000    AI                Hello! How can I assist you today?
+2 2024-12-13 10:02:00.000000  John                    I need help with data science.
+3 2024-12-13 19:21:02.064450    AI  Sure! What specific topic are you interested in?
+```
