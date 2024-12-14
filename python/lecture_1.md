@@ -155,6 +155,7 @@ print(kwlist)        # 34
 ### If you think that variable don't reassigned
 #### For better understandings:
 
+### Example 1:
 ```python
 from keyword import kwlist
 x = kwlist
@@ -169,6 +170,26 @@ print(x)
 34
 ```
 
+### Example 2:
+```python
+import keyword
+print(keyword.kwlist)
+print(type(keyword.kwlist))
+kwlist = 34
+print(kwlist)
+print(type(kwlist))
+print(type(keyword.kwlist))
+print(keyword.kwlist)
+```
+```python
+['False', 'None', 'True', 'and', 'as', 'assert', 'async', 'await', 'break', 'class', 'continue', 'def', 'del', 'elif', 'else', 'except', 'finally', 'for', 'from', 'global', 'if', 'import', 'in', 'is', 'lambda', 'nonlocal', 'not', 'or', 'pass', 'raise', 'return', 'try', 'while', 'with', 'yield']
+<class 'list'>
+34
+<class 'int'>
+<class 'list'>
+['False', 'None', 'True', 'and', 'as', 'assert', 'async', 'await', 'break', 'class', 'continue', 'def', 'del', 'elif', 'else', 'except', 'finally', 'for', 'from', 'global', 'if', 'import', 'in', 'is', 'lambda', 'nonlocal', 'not', 'or', 'pass', 'raise', 'return', 'try', 'while', 'with', 'yield']
+```
+#### I hope your doubt is now clear about that topic ✅
 
 ### Example of Reserved Keyword Error:
 ```python
