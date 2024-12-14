@@ -376,6 +376,28 @@ Current date and time is: 2024-12-09 01:52:25
 
 ---
 
+| Format Code | Meaning                                        | Example |
+|-------------|------------------------------------------------|---------|
+| `%d`        | Day of the month (01 to 31)                    | 05      |
+| `%m`        | Month (01 to 12)                               | 09      |
+| `%Y`        | Year with century (e.g., 2024)                 | 2024    |
+| `%H`        | Hour (00 to 23, 24-hour clock)                 | 15      |
+| `%I`        | Hour (01 to 12, 12-hour clock)                 | 03      |
+| `%M`        | Minute (00 to 59)                              | 45      |
+| `%S`        | Second (00 to 59)                              | 30      |
+| `%p`        | AM or PM                                       | PM      |
+| `%A`        | Full weekday name                              | Monday  |
+| `%a`        | Abbreviated weekday name                       | Mon     |
+| `%B`        | Full month name                                | December|
+| `%b`        | Abbreviated month name                         | Dec     |
+| `%c`        | Locale’s date and time (full)                  | Thu Dec 13 15:45:30 2024 |
+| `%x`        | Locale’s date (short format)                   | 12/13/24|
+| `%X`        | Locale’s time (short format)                   | 15:45:30 |
+| `%f`        | Microsecond (000000 to 999999)                 | 123456  |
+| `%z`        | UTC offset in the form +HHMM or -HHMM          | +0200   |
+| `%Z`        | Time zone abbreviation                         | UTC     |
+
+
 ## 10. Expressions in Python
 
 An **expression** is a combination of values, variables, operators, and function calls that evaluates to produce a result.
