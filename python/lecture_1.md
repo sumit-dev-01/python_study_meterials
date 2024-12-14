@@ -151,6 +151,24 @@ print(kwlist)        # 34
 34
 ```
 
+# As my opinion i don't recommende this type of usage:
+### If you think that variable don't reassigned
+#### For better understandings:
+
+```python
+from keyword import kwlist
+x = kwlist
+print(type(kwlist))
+x = 34
+print(type(x))
+print(x)
+
+## result should be:
+<class 'list'>
+<class 'int'>
+34
+```
+
 
 ### Example of Reserved Keyword Error:
 ```python
