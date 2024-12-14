@@ -99,6 +99,58 @@ print(keyword.kwlist)
 ```python
 ['False', 'None', 'True', 'and', 'as', 'assert', 'async', 'await', 'break', 'class', 'continue', 'def', 'del', 'elif', 'else', 'except', 'finally', 'for', 'from', 'global', 'if', 'import', 'in', 'is', 'lambda', 'nonlocal', 'not', 'or', 'pass', 'raise', 'return', 'try', 'while', 'with', 'yield']
 ```
+___
+# Differences Between `import` and `from ... import ...`
+
+| **Aspect**                | **`import`**                              | **`from ... import ...`**                |
+|---------------------------|-------------------------------------------|------------------------------------------|
+| **What is imported**      | Entire module                            | Specific items from the module           |
+| **Access method**         | Prefix items with the module name        | Access items directly (no prefix needed) |
+| **Readability**           | Better for clarity, as it shows module origin | Better for concise code                 |
+| **Performance**           | Slightly slower (entire module is loaded) | Slightly faster (loads only what’s needed) |
+| **Namespace pollution**   | Less risk (module contents are not directly in global namespace) | Higher risk (imports directly into global namespace) |
+
+---
+
+## Examples 1:
+
+### Using `import` (Low Risk)
+```python
+import keyword
+print(keyword.kwlist)
+kwlist = 34
+print(kwlist)
+```
+```python
+# with no conflict in keywords
+# kwlist is print two types of output
+['False', 'None', 'True', 'and', 'as', 'assert', 'async', 'await', 'break', 'class', 'continue', 'def', 'del', 'elif', 'else', 'except', 'finally', 'for', 'from', 'global', 'if', 'import', 'in', 'is', 'lambda', 'nonlocal', 'not', 'or', 'pass', 'raise', 'return', 'try', 'while', 'with', 'yield']
+34
+```
+
+# 🏗️👨🏼‍💻⚠️ IN YOUR WHOLE PROGRAMMING JOURNEY DO NOT MAKE THIS TYPE OF MISTAkE❌, IF YOU BUILD ANY TYPE OF PROGRAM LARGE OR SMALL!!
+## Example 2:
+### Using from ... import ... (Moderate Risk)
+
+```python
+from keyword import kwlist
+
+# Initially, kwlist is the imported list of Python keywords.
+print(type(kwlist))  # <class 'list'>
+print(kwlist)        # Prints the list of Python keywords.
+
+# Overwriting kwlist with an integer.
+kwlist = 34
+print(type(kwlist))  # <class 'int'>
+print(kwlist)        # 34
+```
+```python
+<class 'list'>
+['False', 'None', 'True', 'and', 'as', 'assert', 'async', 'await', 'break', 'class', 'continue', 'def', 'del', 'elif', 'else', 'except', 'finally', 'for', 'from', 'global', 'if', 'import', 'in', 'is', 'lambda', 'nonlocal', 'not', 'or', 'pass', 'raise', 'return', 'try', 'while', 'with', 'yield']
+<class 'int'>
+34
+```
+
 
 ### Example of Reserved Keyword Error:
 ```python
