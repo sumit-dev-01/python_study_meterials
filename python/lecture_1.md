@@ -448,33 +448,51 @@ print(f"My name is {name} and I am {age} years old.")
 - *f-strings are faster than both `.format()` and string concatenation because they are evaluated at runtime as a single expression.*
 
 ```python
+user = "Sumit"
+age = 22
+print(f"{user}'s age is {age}")
+user = "Sumit"
+age = 22
+print("{}'s age is {}".format(user, age))
+
+
 import timeit
 
-# Timing the .format() method
-format_time = timeit.timeit('"hello, {}!".format("world")', number=100000000)
+# Testing f-strings
+fstring_time = timeit.timeit('''
+user = "Sumit"
+age = 22
+result = f"{user}'s age is {age}"
+''', number=100000000)
 
-# Timing the f-string
-fstring_time = timeit.timeit('f"hello, {\'world\'}!"', number=100000000)
+# Testing .format() method
+format_time = timeit.timeit('''
+user = "Sumit"
+age = 22
+result = "{}'s age is {}".format(user, age)
+''', number=100000000)
 
 # Printing the time taken for each method
 print(f"Time taken by f-string: {fstring_time:.6f} seconds")
-print(f"Time taken by .format: {format_time:.6f} seconds")
+print(f"Time taken by .format(): {format_time:.6f} seconds")
 
-# Comparing the timing of two elements
+# Comparing the timing of the two approaches
 time_duration = abs(format_time - fstring_time)
 
 if format_time > fstring_time:
     print("f-strings are faster!")
-    print(f"f-strings are {time_duration:.6f} seconds faster!")
+    print(f"fstring is {time_duration:.6f} seconds faster")
 else:
     print(".format() is faster!")
-    print(f".format() is {time_duration:.6f} seconds faster!")
+    print(f".format() is {time_duration:.6f} seconds faster")
 
 #output:
-Time taken by f-string: 5.380533 seconds
-Time taken by .format: 17.124796 seconds
+Sumit's age is 22
+Sumit's age is 22
+Time taken by f-string: 11.819239 seconds
+Time taken by .format(): 42.085795 seconds
 f-strings are faster!
-f-strings are 11.744262 seconds faster!
+fstring is 30.266556 seconds faster
 ```
 #### comparing the execution time of two ways to format strings in Python: using `.format()` and `f-strings`.
 
