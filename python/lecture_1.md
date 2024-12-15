@@ -594,12 +594,44 @@ The price is $49.99.
 ## Date and Time formatting
 
 ```python
-from datetime import datetime
-current_time = datetime.now()
-print(f"Current date and time is: {current_time:%Y-%m-%d %H:%M:%S}")
+import datetime
+today_info = datetime.datetime.now()
+print(f"Day of the month(01 - 31):{today_info: %d}")
+print(f"Month (0 - 12):{today_info: %m}")
+print(f"Year with century:{today_info: %Y}")
+print(f"Hour(24 hour format):{today_info: %H}")
+print(f"Hour(12 hour format):{today_info: %I %p}")
+print(f"Minute(0 - 59):{today_info: %M}")
+print(f"Seconds(0 - 59):{today_info: %S}")
+print(f"AM or PM:{today_info: %p}")
+print(f"Full weekday name:{today_info: %A}")
+print(f"Abbreviated weekday name:{today_info: %a}")
+print(f"Full month name:{today_info: %B}")
+print(f"Abbreviated month name:{today_info: %b}")
+print(f"Local's date and time(full):{today_info: %c}")
+print(f"Local's date(short format):{today_info: %x}")
+print(f"Local's time(short format):{today_info: %X}")
 
-#output:
-Current date and time is: 2024-12-09 01:52:25
+print(f"So hi...guys, today is {today_info:%A}, {today_info:%d} of {today_info:%B %Y}. When i update this lecture_1.md file and time is {today_info:%X}")
+```
+```python
+# output:
+Day of the month(01 - 31): 15
+Month (0 - 12): 12
+Year with century: 2024
+Hour(24 hour format): 16
+Hour(12 hour format): 04 PM
+Minute(0 - 59): 22
+Seconds(0 - 59): 08
+AM or PM: PM
+Full weekday name: Sunday
+Abbreviated weekday name: Sun
+Full month name: December
+Abbreviated month name: Dec
+Local's date and time(full): Sun Dec 15 16:22:08 2024
+Local's date(short format): 12/15/24
+Local's time(short format): 16:22:08
+So hi...guys, today is Sunday, 15 of December 2024. When i update this lecture_1.md file and time is 16:22:08
 ```
 
 ---
