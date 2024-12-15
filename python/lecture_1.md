@@ -450,32 +450,31 @@ print(f"My name is {name} and I am {age} years old.")
 ```python
 import timeit
 
-# Measure time taken by .format() method
-format_time = timeit.timeit('"Hello, {}!".format("World")', number=100000000)
+# Timing the .format() method
+format_time = timeit.timeit('"hello, {}!".format("world")', number=100000000)
 
-# Measure time taken by f-string
-fstring_time = timeit.timeit('f"Hello, {"World"}!"', number=100000000)
+# Timing the f-string
+fstring_time = timeit.timeit('f"hello, {\'world\'}!"', number=100000000)
 
-# Print the results
-print(f"Time taken by .format(): {format_time:.6f} seconds")
-print(f"Time taken by f-strings: {fstring_time:.6f} seconds")
+# Printing the time taken for each method
+print(f"Time taken by f-string: {fstring_time:.6f} seconds")
+print(f"Time taken by .format: {format_time:.6f} seconds")
 
-# Calculate time difference
-time_difference = abs(format_time - fstring_time)
+# Comparing the timing of two elements
+time_duration = abs(format_time - fstring_time)
 
-# Compare which is faster and print the time difference
 if format_time > fstring_time:
     print("f-strings are faster!")
-    print(f"f-strings are {time_difference:.6f} seconds faster.")
+    print(f"f-strings are {time_duration:.6f} seconds faster!")
 else:
     print(".format() is faster!")
-    print(f".format() is {time_difference:.6f} seconds faster.")
+    print(f".format() is {time_duration:.6f} seconds faster!")
 
 #output:
-Time taken by .format(): 18.676581 seconds
-Time taken by f-strings: 5.067684 seconds
+Time taken by f-string: 5.380533 seconds
+Time taken by .format: 17.124796 seconds
 f-strings are faster!
-f-strings are 13.608897 seconds faster.
+f-strings are 11.744262 seconds faster!
 ```
 #### comparing the execution time of two ways to format strings in Python: using `.format()` and `f-strings`.
 
