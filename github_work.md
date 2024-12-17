@@ -105,3 +105,11 @@ git fetch --all
 ```bash
 git branch -a
 ```
+
+## How to fork (means someone's repo copy to your account)
+
+- goto my id `sumit-dev-01`
+- then click on `fork` and then click on `create fork`
+- now you can work freely with my repo
+- after forking that, clone that repo to your `vs code` then create and switch to newly created branch and strat tracking for branch
+- every thing we'll discuss earlier on this file
