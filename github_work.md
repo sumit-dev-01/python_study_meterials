@@ -105,11 +105,3 @@ git fetch --all
 ```bash
 git branch -a
 ```
-
-## How to create fork a repo on your vs code
-
-- go to sumit-dev-01 
-- then go to python_study_materilas
-- then click on fork
-- after that click `create fork` button, if you're a new on github then don't need to any configuration, just leave it as default
-- afterthat you'll see my repo on your account, now you can freely work on that
